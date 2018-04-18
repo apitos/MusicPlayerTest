@@ -8,7 +8,8 @@
 
     <!-- Song Thumbnail Image -->
 
-    <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+    <de.hdodenhof.circleimageview.CircleImageView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/profile_image"
         android:layout_width="250dp"
         android:layout_height="250dp"
@@ -16,7 +17,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="0dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:alpha="0.9"
         android:paddingBottom="5dp"
         android:paddingTop="5dp"
@@ -43,10 +44,10 @@
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:layout_weight="1"
-            android:fontFamily="serif-monospace"
-            android:paddingStart="10dp"
-            android:text="El Condor"
-            android:textColor="#2a43a7"
+            android:fontFamily="@string/font_family_thin"
+                  android:paddingLeft="10dp"
+            android:text="El Condor Pasa"
+
             android:textSize="20sp"
             android:textStyle="bold" />
         <!-- Singer Name -->
@@ -57,10 +58,10 @@
             android:layout_gravity="center"
             android:layout_marginBottom="10dp"
             android:layout_weight="1"
-            android:fontFamily="sans-serif-thin"
-            android:paddingLeft="10dp"
+            android:fontFamily="@string/font_family_thin"
+            android:paddingLeft="0dp"
             android:text="Leo Rojas"
-            android:textColor="#04b3d2"
+
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -81,7 +82,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="50dp"
             android:background="@null"
-            android:src="@drawable/repeat_icon" />
+            android:src="@drawable/ic_shuffle_black_24dp" />
 
         <!-- Shuffle Button -->
         <ImageButton
@@ -90,7 +91,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="50dp"
             android:background="@null"
-            android:src="@drawable/shuffle_icon" />
+            android:src="@drawable/ic_repeat_black_24dp" />
     </LinearLayout>
 
     <!-- Timer Display -->
@@ -99,65 +100,85 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/repeatShuffle"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp">
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
 
         <!-- Current Duration Label -->
         <TextView
             android:id="@+id/songCurrentDurationLabel"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="left"
+android:layout_gravity="center"
             android:text="1:00"
-            android:textColor="#04cbde"
+android:paddingLeft="20dp"
             android:textStyle="bold" />
+
+        <!-- SoundBar -->
+        <SeekBar
+            android:id="@+id/soundProgressBar0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            android:layout_weight="8"
+            android:max="200"
+            android:padding="0dp"
+            android:paddingEnd="0dp"
+            android:paddingStart="0dp"
+            android:progress="30" />
 
         <!-- Total Duration Label -->
         <TextView
             android:id="@+id/songTotalDurationLabel"
-            android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_weight="1"
             android:gravity="right"
+            android:paddingRight="20dp"
             android:text="4:02"
-            android:textColor="#04cbde"
+
             android:textStyle="bold" />
 
     </LinearLayout>
 
     <!-- Progress Bar/Seek bar -->
-    <SeekBar
-        android:id="@+id/songProgressBar"
+    <!--<SeekBar-->
+        <!--android:id="@+id/songProgressBar"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@id/timerDisplay"-->
+        <!--android:layout_marginLeft="60dp"-->
+        <!--android:layout_marginRight="60dp"-->
+        <!--android:max="100"-->
+
+        <!--android:padding="0dp"-->
+        <!--android:paddingEnd="0dp"-->
+        <!--android:paddingStart="0dp"-->
+        <!--android:progress="30" />-->
+
+
+    <!-- Player Buttons -->
+    <LinearLayout
+        android:id="@+id/player_buttons"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@id/player_footer_bg"
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:max="200"
-
-        android:padding="0dp"
-        android:paddingEnd="0dp"
-        android:paddingStart="0dp"
-        android:progress="30" />
-
-
-    <!-- Player Footer -->
-    <LinearLayout
-        android:id="@+id/player_footer_bg"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/soundEffect"
+        android:layout_below="@+id/timerDisplay"
+        android:layout_marginBottom="0dp"
+        android:layout_marginTop="8dp"
         android:background="@null"
         android:gravity="center">
 
         <!-- Player Buttons -->
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="60dp"
+            android:layout_height="wrap_content"
             android:background="@null"
-            android:gravity="center_vertical"
+            android:gravity="center"
             android:orientation="horizontal"
             android:paddingLeft="10dp"
             android:paddingRight="10dp">
@@ -168,31 +189,33 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@null"
-                android:src="@drawable/start_icon" />
+                android:src="@drawable/ic_skip_previous_black_24dp" />
 
             <!-- Backward Button -->
-            <ImageButton
-                android:id="@+id/btnBackward"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@null"
-                android:src="@drawable/rewind_icon" />
+            <!--<ImageButton-->
+            <!--android:id="@+id/btnBackward"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="@null"-->
+            <!--android:src="@drawable/ic_play_arrow" />-->
 
             <!-- Play Button -->
             <ImageButton
                 android:id="@+id/btnPlay"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
                 android:background="@null"
-                android:src="@drawable/play_96_icon" />
+                android:src="@drawable/ic_play_arrow_black_24dp" />
 
             <!-- Forward Button -->
-            <ImageButton
-                android:id="@+id/btnForward"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@null"
-                android:src="@drawable/forward_icon" />
+            <!--<ImageButton-->
+            <!--android:id="@+id/btnForward"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="@null"-->
+            <!--android:src="@drawable/ic_play_arrow" />-->
 
             <!-- Next Button -->
             <ImageButton
@@ -200,20 +223,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@null"
-                android:src="@drawable/end_icon" />
+                android:src="@drawable/ic_skip_next_black_24dp" />
 
         </LinearLayout>
 
     </LinearLayout>
-
-
-
 
     <LinearLayout
         android:id="@+id/soundEffect"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:layout_below="@+id/player_buttons"
+        android:gravity="center"
         android:orientation="horizontal">
 
         <!-- Mute Button -->
@@ -223,27 +245,28 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/timerDisplay"
+
+            android:layout_weight="1"
             android:background="@null"
-            android:src="@drawable/mute_icon" />
+            android:src="@drawable/ic_volume_off_black_24dp" />
 
         <!-- SoundBar -->
         <SeekBar
             android:id="@+id/soundProgressBar"
 
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:layout_marginLeft="10dp"
 
+            android:layout_gravity="center"
+
+
+            android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
-
-            android:max="100"
-            android:progress="30"
+            android:layout_weight="6"
             android:padding="0dp"
             android:paddingEnd="0dp"
             android:paddingStart="0dp"
-            />
+            android:progress="30" />
 
         <!-- Speaker Button -->
         <ImageButton
@@ -252,7 +275,9 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="5dp"
 
+            android:layout_weight="1"
             android:background="@null"
-            android:src="@drawable/speaker_icon" />
+            android:src="@drawable/ic_volume_up_black_24dp" />
     </LinearLayout>
+
 </RelativeLayout>
