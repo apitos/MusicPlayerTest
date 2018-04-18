@@ -45,7 +45,7 @@
             android:layout_marginTop="10dp"
             android:layout_weight="1"
             android:fontFamily="@string/font_family_thin"
-                  android:paddingLeft="10dp"
+            android:paddingLeft="10dp"
             android:text="El Condor Pasa"
 
             android:textSize="20sp"
