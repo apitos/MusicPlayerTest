@@ -6,10 +6,10 @@
     android:background="@color/player_background"
     tools:context="com.example.android.musicplayertest.MainActivity">
 
+
     <!-- Song Thumbnail Image -->
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+    <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/profile_image"
         android:layout_width="250dp"
         android:layout_height="250dp"
@@ -110,15 +110,15 @@
             android:id="@+id/songCurrentDurationLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_weight="1"
-android:layout_gravity="center"
+            android:paddingLeft="20dp"
             android:text="1:00"
-android:paddingLeft="20dp"
             android:textStyle="bold" />
 
         <!-- SoundBar -->
         <SeekBar
-            android:id="@+id/soundProgressBar0"
+            android:id="@+id/soundProgressBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -133,7 +133,7 @@ android:paddingLeft="20dp"
 
         <!-- Total Duration Label -->
         <TextView
-            android:id="@+id/songTotalDurationLabel"
+            android:id="@+id/songRemainDurationLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -148,18 +148,18 @@ android:paddingLeft="20dp"
 
     <!-- Progress Bar/Seek bar -->
     <!--<SeekBar-->
-        <!--android:id="@+id/songProgressBar"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_below="@id/timerDisplay"-->
-        <!--android:layout_marginLeft="60dp"-->
-        <!--android:layout_marginRight="60dp"-->
-        <!--android:max="100"-->
+    <!--android:id="@+id/songProgressBar"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_below="@id/timerDisplay"-->
+    <!--android:layout_marginLeft="60dp"-->
+    <!--android:layout_marginRight="60dp"-->
+    <!--android:max="100"-->
 
-        <!--android:padding="0dp"-->
-        <!--android:paddingEnd="0dp"-->
-        <!--android:paddingStart="0dp"-->
-        <!--android:progress="30" />-->
+    <!--android:padding="0dp"-->
+    <!--android:paddingEnd="0dp"-->
+    <!--android:paddingStart="0dp"-->
+    <!--android:progress="30" />-->
 
 
     <!-- Player Buttons -->
@@ -204,8 +204,8 @@ android:paddingLeft="20dp"
                 android:id="@+id/btnPlay"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
                 android:background="@null"
                 android:src="@drawable/ic_play_arrow_black_24dp" />
 
@@ -252,7 +252,7 @@ android:paddingLeft="20dp"
 
         <!-- SoundBar -->
         <SeekBar
-            android:id="@+id/soundProgressBar"
+            android:id="@+id/volumeProgressBar"
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
